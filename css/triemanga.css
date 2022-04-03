@@ -1,0 +1,330 @@
+:root{
+  /*GRIS*/
+  --gris50: #323232;
+  --gris25: #191919;
+  --gris50_b75: #32324B;
+  --gris25_b50: #191932;
+  --gris10_b25: #0A0A19;
+
+  --gris_r75: #4B0000;
+  --gris25_r50: #321919;
+
+  --gris_o75: #4B2500;
+  --gris_o50: #321D00;
+
+  --gris_j75: #4B4B00;
+  --gris_j50: #323200;
+  /*BLEU*/
+  --bleu_225: #0000E1;
+  --bleu_175: #0000AF;
+  --bleu_170: #0000AA;
+  --bleu_160: #0000A0;
+  --bleu_120: #000078;
+  --bleu_110: #00006F;
+  --bleu_105: #000069;
+  --bleu_75: #00004B;
+  --bleu_50: #000032;
+  /*BLANC*/
+  --blanc: #FFFFFF;
+  --blanc_b-25: #E1E1FF;
+  --blanc_b-45: #D2D2FF;
+  --blanc_b-55: #C8C8FF;
+  /*ROUGE*/
+  --rouge_75: #4B0000 ;
+  --rouge_50: #320000 ;
+  /*ORANGE*/
+  --orange_75 : #4B3200 ;
+  --orange_50 : #321900 ;
+  /*JAUNE*/
+  --jaune_75: # ;
+  --jaune_50: # ;
+
+  /*VAR ELEMENTS*/
+  --fond: var(--gris50);
+  --text: var(--blanc_b-45);
+  --conteneur_ajout: var(--gris10_b25);
+  --conteneur_element: var(--gris25_b50);
+  --conteneur_element_change: var(--gris50_b75);
+  
+  --manga_en_cour : var(--gris_j50);
+  --manga_en_cour_change : var(--gris_j75);
+  --manga_en_attente : var(--gris_o50);
+  --manga_en_attente_change : var(--gris_o75);
+  --manga_finit : var(--gris25_r50);
+  --manga_finit_change : var(--gris_r75);
+  
+  --bouton_liste : var(--bleu_50);
+  --bouton_liste_change : var(--bleu_75);
+  --bouton_attente : var(--orange_50);
+  --bouton_attente_change : var(--orange_75);
+  --bouton_fin : var(--rouge_50);
+  --bouton_fin_change : var(--rouge_75);
+  /*
+
+  --bouton_menu: var(--bleu_110);
+  --bouton_change_menu: var(--bleu_160);
+  --bouton_element: var(--bleu_175);
+  --bouton_change_element: var(--bleu_225);
+  */
+}
+
+body{
+  background-color: var(--fond);
+  color: var(--text);
+  margin: 0px;
+}
+
+input[type="submit"]{
+  border-width: 0px;
+  color: var(--text);
+  transition: 0.2s;
+  outline: none;
+}
+input[type="submit"]:hover{
+  transform: scale(1.05);
+}
+input[type="submit"]:active{
+  background-color: var(--bouton_change_menu);
+}
+
+textarea{
+  resize: none;
+  background: none;
+  color: var(--text);
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* menu */
+.menu{
+    display: flex;
+    flex-direction: row;
+  
+  }
+  
+  .menu input{
+    width: 10%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 2%;
+    background-color: var(--bouton_liste);
+  }
+
+  #retour{
+    display: none;
+    margin-left: 15%;
+    background-color: rgb(100,50,0);
+  }
+
+  #telecharger:active{
+    background-color: var(--blanc);
+  }
+  
+  .bMenu{
+    background-color: var(--bouton_liste);
+  }
+  /* ajout de manga */
+
+  #principale{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--conteneur_ajout);
+  }
+  
+  .tableau{
+    display: grid;
+    grid-template-columns: 20% 40% 10% 20% 10%;
+    background-color: var(--conteneur_ajout);
+  }
+  .tableau p{
+    text-align: center;
+  }
+
+  #principale input[type="text"]{
+    background-color: var(--conteneur_element);
+    border: none;
+    outline: none;
+    color: var(--text);
+  }
+  #principale input[type="text"]:focus{
+    background-color: var(--conteneur_element_change);
+  }
+
+  select{
+    outline: none;
+    color: var(--text);
+    background-color: var(--conteneur_element);
+  }
+
+  #popup{
+    display: none;
+    position: absolute;
+    margin: 20%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10%;
+    padding: 5%;
+    text-align: center;
+    background-color: var(--bouton_liste);
+    font-size: 150%;
+    transition: 0.5s;
+  }
+  
+  /* liste */
+
+  .stock{
+    display: flex;
+    flex-direction: column;
+    /*padding: 1%;*/
+  }  
+  /* mangas */
+
+  .manga{
+    display: grid;
+    grid-template-columns: 15% 35% 5% 20% 5% 20%;
+    background-color: var(--conteneur_element);
+    transition: 0.5s;
+  }
+  .manga:hover{
+    background-color: var(--conteneur_element_change);
+  }
+
+  .manga p{
+    padding-right: 1%;
+    padding-left: 30%;
+  }
+
+  .manga input[type="submit"]:hover{
+    transform: scaleX(1.05);
+  }
+  .manga input[type="submit"]:active{
+    background-color: var(--bouton_liste_change) ;
+  }
+
+  #lien{
+    font-size: 110%;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+  }
+  
+  .modif{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-self: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+  }
+
+  .modif input{
+    margin: 1%;
+  }
+  .modif input[type="submit"]:hover{
+    transform: scaleY(1.1);
+  }
+  
+  .bElementListe{
+    font-size: 150%;
+    margin: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: var(--bouton_liste);
+  }
+  .bElementListe:active{
+    background-color: var(--blanc);
+  }
+  
+  .util{
+    font-size: 100%;
+  }  
+
+  .pages{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableauListe{
+    display: grid;
+    grid-template-columns: 15% 35% 5% 20% 5% 20%;
+    background-color: var(--conteneur_ajout);
+  }
+
+  .tableauListe p{
+    text-align: center;
+  }
+
+  /* en attente */
+  .mangaAtente{
+    display: grid;
+    grid-template-columns: 15% 35% 5% 20% 5% 20%;
+    background-color: var(--manga_en_attente);
+    transition: 0.5s;
+  }
+  .mangaAtente:hover{
+    background-color: var(--manga_en_attente_change);
+  }
+
+  .mangaAtente p{
+    padding-right: 1%;
+    padding-left: 30%;
+  }
+
+  .mangaAtente input[type="submit"]:hover{
+    transform: scaleX(1.05);
+  }
+  .mangaAtente input[type="submit"]:active{
+    background-color: var(--bouton_attente_change) ;
+  }
+
+  .bElementAttente{
+    font-size: 150%;
+    margin: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: var(--bouton_attente);
+  }
+  .bElementAttente:active{
+    background-color: var(--bouton_attente_change);
+  }
+
+  /* finit */
+  .mangaFinit{
+    display: grid;
+    grid-template-columns: 15% 35% 5% 20% 5% 20%;
+    background-color: var(--manga_finit);
+    transition: 0.5s;
+  }
+  .mangaFinit:hover{
+    background-color: var(--manga_finit_change);
+  }
+
+  .mangaFinit p{
+    padding-right: 1%;
+    padding-left: 30%;
+  }
+
+  .mangaFinit input[type="submit"]:hover{
+    transform: scaleX(1.05);
+  }
+  .mangaFinit input[type="submit"]:active{
+    background-color: var(--bouton_fin_change) ;
+  }
+
+  .bElementFin{
+    font-size: 150%;
+    margin: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: var(--bouton_fin);
+  }
+  .bElementFin:active{
+    background-color: var(--bouton_fin_change);
+  }
